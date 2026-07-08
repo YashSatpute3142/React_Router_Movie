@@ -1,0 +1,271 @@
+.movie-details-page {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: #f1f1f4;
+  color: rgb(0, 0, 0);
+}
+
+.movie-backdrop {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top right,
+      rgba(59, 130, 246, 0.25),
+      transparent 40%),
+    radial-gradient(circle at bottom left,
+      rgba(168, 85, 247, 0.25),
+      transparent 40%);
+  animation: glowMove 8s ease-in-out infinite alternate;
+}
+
+.movie-details-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1400px;
+  margin: auto;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  padding: 3rem;
+
+  animation: pageEnter 1s ease;
+}
+
+/* Poster */
+
+.poster-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.poster-section img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+
+  animation: posterSlide 1.2s ease;
+  transition: all 0.5s ease;
+}
+
+.poster-section img:hover {
+  transform: scale(1.05) rotate(-2deg);
+}
+
+/* Content */
+
+.content-section {
+  flex: 1.5;
+  animation: contentSlide 1.2s ease;
+}
+
+.content-section h1 {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+
+  background: linear-gradient(
+    90deg,
+    #db2c95,
+    #f02121,
+    #ff0008
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+}
+
+/* Badges */
+
+.info-badges {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.info-badges span {
+  padding: 0.8rem 1.3rem;
+  border-radius: 50px;
+
+  background: rgba(62, 45, 45, 0.08);
+  backdrop-filter: blur(12px);
+
+  transition: all 0.3s ease;
+}
+
+.info-badges span:hover {
+  transform: translateY(-5px);
+}
+
+.genre {
+  color: #000000;
+  font-size: 1.15rem;
+  margin-bottom: 2rem;
+  background-color: rgba(116, 51, 51, 0.08);
+  padding: 0.5rem;
+  padding-left: 1rem;
+  width: 400px;
+  border-radius: 1rem;
+}
+
+/* Info Grid */
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.info-grid div {
+  padding: 1.2rem;
+  border-radius: 16px;
+
+  background: rgba(116, 51, 51, 0.08);
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  transition: all 0.3s ease;
+}
+
+.info-grid div:hover {
+  transform: translateY(-6px);
+}
+
+.info-grid h4 {
+  color: #60a5fa;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.info-grid p {
+  color: #000000;
+  line-height: 1.6;
+}
+
+/* Plot */
+
+.plot {
+  margin-top: 2.5rem;
+}
+
+.plot h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(
+    90deg,
+    #db2c95,
+    #f02121,
+    #ff0008
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+}
+
+.plot p {
+  color: #0e0e0e;
+  font-size: 1.05rem;
+  line-height: 1.9;
+}
+
+/* Animations */
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes posterSlide {
+  from {
+    opacity: 0;
+    transform: translateX(-100px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes contentSlide {
+  from {
+    opacity: 0;
+    transform: translateX(120px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes glowMove {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 900px) {
+  .movie-details-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .content-section h1 {
+    font-size: 2.8rem;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .poster-section img {
+    max-width: 320px;
+  }
+
+  .plot h2 {
+    font-size: 2rem;
+  }
+}
+.movie-backdrop {
+  position: absolute;
+
+  width: 400px;
+  height: 400px;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(59,130,246,.25),
+      rgba(168,85,247,.20),
+      rgba(236,72,153,.15),
+      transparent
+    );
+
+  filter: blur(60px);
+
+  transform: translate(-50%, -50%);
+
+  z-index: 1;
+
+  transition:
+    left .08s ease-out,
+    top .08s ease-out;
+}
