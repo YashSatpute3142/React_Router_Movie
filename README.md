@@ -68,13 +68,13 @@ The application allows users to browse movies, navigate between pages, open deta
 
 ### 📄 Movie Details Page
 
-![Movie Details](images/movie-details.png)
+![Movie Details](images/details.png)
 
 ---
 
 ### 🚫 Custom 404 Error Page
 
-![404 Page](images/error-page.png)
+![404 Page](images/error.png)
 
 ---
 
